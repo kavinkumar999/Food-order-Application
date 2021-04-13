@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+
+body,footer{
+    font-family: 'Crete Round', serif;
+}
+.space{
+    margin-left: 10px;
+}
+.line::after{
+    margin-left: 10px;
+    content: "|";
+}
+.second-container{
+    margin-top: 50px;
+}
+.img{
+    margin-top: 50px;
+    height: 700px;
+}
+.banner-text{
+    color: white;
+    margin-bottom: 500px;
+}
+#service > .row{
+    margin-top: 100px ;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.form-in{
+    margin-bottom: 20px;
+}
+footer {
+    
+    margin-top: 100px;
+    padding-top: 30px;
+    background-color: #292c2f;
+    color: #bbb;
+  }
+  
+  footer a {
+    color: #999;
+    text-decoration:none;
+  }
+  
+  
+  
+  footer .form-control {
+      background-color: #1f2022;
+      box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      border: none;
+      resize: none;
+      color: #d1d2d2;
+      margin-bottom: 10px;
+      margin-right: 50px;
+      padding: 0.7em 1em;
+  }
+  
+
