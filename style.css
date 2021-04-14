@@ -13,6 +13,13 @@ body,footer{
     margin-left: 10px;
     content: "|";
 }
+.line1::after{
+    margin-left: 20px;
+    content: "|";
+}
+._text{
+    font-size: 30px;
+}
 .second-container{
     margin-top: 20px;
 }
