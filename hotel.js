@@ -11,8 +11,8 @@ class User{
 
 
 document.getElementById("signin").onclick = function(){
-    $('#signin').removeAttr("data-dismiss","modal");  
-
+    // $('#signin').attr("data-dismiss","modal");  
+    console.log($('#signin'))
     let name = document.getElementById("input")
     let pass = document.getElementById("password")
     let manager = document.getElementById("manager").checked
@@ -35,7 +35,6 @@ document.getElementById("signin").onclick = function(){
 
     }
     else{
-        pass.classList.add("is-valid")
         pass.classList.remove("is-invalid")
 
     }
@@ -44,7 +43,7 @@ document.getElementById("signin").onclick = function(){
         if(manager){
             for(var user in managerarray){
                 if(managerarray[user].name = name.value && managerarray[user].pass == pass.value){
-                    console.log("matched th resutl")
+                    console.log("matched th result")
                     token = true;
                     break;
                 }
@@ -53,7 +52,7 @@ document.getElementById("signin").onclick = function(){
         else{
             for(var user in customerarray){
                 if(customerarray[user].name = name.value && customerarray[user].pass == pass.value){
-                    console.log("matched th resutl")
+                    console.log("matched th result")
                     token = true;
                     break;
                 }
@@ -69,25 +68,35 @@ document.getElementById("signin").onclick = function(){
     //     console.log(customerarray[user].name)
     //     console.log(customerarray[user].pass)
     // }
-    console.log(token)
-    if(token){
-        name.value = ""
-        pass.value = ""
-        //login into the order page
+    if (name.value !=="" && pass.value !==""){
+        if(token){
+            name.value = ""
+            pass.value = ""
+            //login into the order page
 
-        console.log("successfully login")
-    }
-    else if (name.value !=="" && pass.value !==""){
-        pass.classList.remove("is-valid")
-        pass.classList.add("is-invalid")
-        $(".invalid-feedback").text("Please check your Credentials")
+            console.log("successfully login")
+
+        }
+        else{
+            
+            pass.classList.remove("is-valid")
+            pass.classList.add("is-invalid")
+            $(".invalid-feedback").text("Please check your Credentials")
+
+        }
+        
+        // $('#signin').removeAttr("data-dismiss","modal");  
+
 
     }
+    // $('#signin').removeAttr("data-dismiss","modal");  
+
+
     
 };
 
 document.getElementById("signup").onclick = function(){
-    $('#signup').removeAttr("data-dismiss","modal");  
+    // $('#signup').removeAttr("data-dismiss","modal");  
 
     let uname = document.getElementById("ninput")
     let upass = document.getElementById("npass")
@@ -156,7 +165,7 @@ document.getElementById("signup").onclick = function(){
             else{
                 customerarray.push(user)
             }
-            $('#signup').attr("data-dismiss","modal");    
+            // $('#signup').attr("data-dismiss","modal");    
 
 
         }
