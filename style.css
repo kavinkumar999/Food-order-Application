@@ -14,7 +14,7 @@ body,footer{
     content: "|";
 }
 .second-container{
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .img{
     margin-top: 50px;
@@ -62,16 +62,25 @@ footer {
     background-color: #292c2f;
     color: #bbb;
   }
-  
+  .align{
+      margin-right: 10px;
+  }
   footer a {
     color: #999;
     text-decoration:none;
   }
   
   .inside{
-      margin-top: 100px;
+      margin-top: 70px;
   }
-  
+  .bade{
+      margin-left: 10px;
+      padding: 5px;
+      position: relative;
+        bottom: 15px;
+      /* margin-bottom: 50/px; */
+      /* height: 20px; */
+  }
   footer .form-control {
       background-color: #1f2022;
       box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
