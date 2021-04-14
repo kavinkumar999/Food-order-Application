@@ -1,5 +1,7 @@
 const customerarray = []
 const managerarray = []
+const itemarray = []
+const orderarray = []
 class User{
     constructor(name, pass){
         this.name = name;
@@ -7,6 +9,49 @@ class User{
     }
 
 }
+
+class Item{
+    constructor(name,quantity,category,price){
+        this.name = name
+        this.quantity = quantity
+        this.category = category
+        this.price = price
+    }
+}
+
+class order{
+    constructor(customer,item,quantity,price){
+        this.customer = customer
+        this.item = item
+        this.quantity = quantity
+        this.price = price
+    }
+}
+
+
+customerarray.push("kavin","admin")
+managerarray.push("admin","admin")
+orderarray.push(customerarray[0],[itemarray[1],itemarray[3]],[2,2],[60,60])
+
+itemarray.push(new Item("Idly",2,"Breakfast",20))
+itemarray.push(new Item("Pongal",9,"Breakfast",30))
+itemarray.push(new Item("Dosa",4,"Breakfast",30))
+itemarray.push(new Item("Vada",7,"Breakfast",10))
+
+itemarray.push(new Item("Rice",7,"Lunch",50))
+itemarray.push(new Item("Noodles",5,"Lunch",70))
+itemarray.push(new Item("Curd Rice",6,"Lunch",30))
+
+itemarray.push(new Item("Parota",7,"Dinner",10))
+itemarray.push(new Item("Chappathi",4,"Dinner",15))
+itemarray.push(new Item("Non-parota",2,"Dinner",20))
+
+
+
+
+
+
+
 
 
 
@@ -60,19 +105,13 @@ document.getElementById("signin").onclick = function(){
 
         }
     }
-    // for(var user in managerarray){
-    //     console.log(managerarray[user].name)
-    //     console.log(managerarray[user].pass)
-    // }
-    // for(var user in customerarray){
-    //     console.log(customerarray[user].name)
-    //     console.log(customerarray[user].pass)
-    // }
     if (name.value !=="" && pass.value !==""){
         if(token){
             name.value = ""
             pass.value = ""
             //login into the order page
+            window.location.href = "menu.html";
+
 
             console.log("successfully login")
 
@@ -165,7 +204,7 @@ document.getElementById("signup").onclick = function(){
             else{
                 customerarray.push(user)
             }
-            // $('#signup').attr("data-dismiss","modal");    
+            $('#signup').attr("data-dismiss","modal");    
 
 
         }
@@ -176,5 +215,9 @@ document.getElementById("signup").onclick = function(){
     
 
 };
+
+
+
+
 
 
