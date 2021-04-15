@@ -159,7 +159,7 @@ $(document).ready(function(){
             let ordered = JSON.parse(localStorage.getItem("order"));
             $.each(ordered, function(key,value){
 
-                let orderarr = new order(curuser,value[0],value[1],value[3])
+                let orderarr = new order(key,value[0],curuser,value[1],value[3])
                 purorder.push(orderarr)
 
             })
@@ -167,7 +167,7 @@ $(document).ready(function(){
             ordered = {}
             // console.log(ordered);
             localStorage.setItem("order",JSON.stringify(ordered))
-            // localStorage.setItem("purchased",JSON.stringify(purorder))
+            localStorage.setItem("purchased",JSON.stringify(purorder))
 
 
 

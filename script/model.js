@@ -25,9 +25,10 @@ export class Item{
 // order class
 
 export class order{
-    constructor(customer,item,quantity,price){
-        this.customer = customer
+    constructor(id,item, customer,quantity,price){
+        this.id = id
         this.item = item
+        this.customer = customer
         this.quantity = quantity
         this.price = price
     }
