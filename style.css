@@ -69,6 +69,9 @@ footer {
     background-color: #292c2f;
     color: #bbb;
   }
+  .align-item{
+      margin-bottom: 30px;
+  }
   .align{
       margin-right: 10px;
   }
@@ -100,3 +103,11 @@ footer {
   }
   
 
+
+.wrong::after{
+    font-family: FontAwesome;
+    content: "\f00d NA";
+    font-size: 20px;
+    color: red;
+
+}

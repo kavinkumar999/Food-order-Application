@@ -1,51 +1,60 @@
-const customerarray = []
-const managerarray = []
-const itemarray = []
-const orderarray = []
-class User{
-    constructor(name, pass){
-        this.name = name;
-        this.pass = pass;
-    }
+import {User} from "./model.js";
+import {Item} from "./model.js";
+import {order} from "./model.js";
+
+var customerarray = {}
+var managerarray = {}
+
+// const orderarray = []
+
+
+
+
+var currentuser;
+//customer 
+if(JSON.parse(localStorage.getItem("customer")) ){
+    console.log("exitst customer");
+    customerarray = JSON.parse(localStorage.getItem("customer"))
+}
+else{
+    customerarray["kavin"] = new User("kavin","admin")
+
 
 }
 
-class Item{
-    constructor(name,quantity,category,price){
-        this.name = name
-        this.quantity = quantity
-        this.category = category
-        this.price = price
-    }
+//manager
+if(JSON.parse(localStorage.getItem("manager"))){
+    console.log("exist manager");
+    managerarray = JSON.parse(localStorage.getItem("manager"))
 }
+else{
+    managerarray["admin"] = new User("admin","admin")
 
-class order{
-    constructor(customer,item,quantity,price){
-        this.customer = customer
-        this.item = item
-        this.quantity = quantity
-        this.price = price
-    }
 }
 
 
-customerarray.push("kavin","admin")
-managerarray.push("admin","admin")
-orderarray.push(customerarray[0],[itemarray[1],itemarray[3]],[2,2],[60,60])
+const itemarray = {
+    "1001" : new Item("1001","Idly",2,"Breakfast",20),
+    "1002" : new Item("1002","Pongal",9,"Breakfast",30),
+    "1003" : new Item("1003","Dosa",4,"Breakfast",30),
+    "1004" : new Item("1004","Vada",7,"Breakfast",10),
+    "1005" : new Item("1005","Rice",7,"Lunch",50),
+    "1006" : new Item("1006","Noodles",5,"Lunch",70),
+    "1007" : new Item("1007","Curd Rice",6,"Lunch",30),
+    "1008" : new Item("1008","Parota",7,"Dinner",10),
+    "1009" : new Item("1009","Chappathi",4,"Dinner",15),
+    "1010" : new Item("10010","Non-parota",2,"Dinner",20),
+    "1011" : new Item("10011","Pizza",2,"Breakfast",100),
+    "1012" : new Item("10012","Burger",2,"Dinner",100)
+}
 
-itemarray.push(new Item("Idly",2,"Breakfast",20))
-itemarray.push(new Item("Pongal",9,"Breakfast",30))
-itemarray.push(new Item("Dosa",4,"Breakfast",30))
-itemarray.push(new Item("Vada",7,"Breakfast",10))
 
-itemarray.push(new Item("Rice",7,"Lunch",50))
-itemarray.push(new Item("Noodles",5,"Lunch",70))
-itemarray.push(new Item("Curd Rice",6,"Lunch",30))
 
-itemarray.push(new Item("Parota",7,"Dinner",10))
-itemarray.push(new Item("Chappathi",4,"Dinner",15))
-itemarray.push(new Item("Non-parota",2,"Dinner",20))
 
+localStorage.setItem("customer",JSON.stringify(customerarray))
+localStorage.setItem("manager",JSON.stringify(managerarray))
+localStorage.setItem("item",JSON.stringify(itemarray))
+// localStorage.setItem("order",JSON.stringify(orderarray))
 
 
 
@@ -57,7 +66,7 @@ itemarray.push(new Item("Non-parota",2,"Dinner",20))
 
 document.getElementById("signin").onclick = function(){
     // $('#signin').attr("data-dismiss","modal");  
-    console.log($('#signin'))
+    console.log(customerarray);
     let name = document.getElementById("input")
     let pass = document.getElementById("password")
     let manager = document.getElementById("manager").checked
@@ -85,35 +94,50 @@ document.getElementById("signin").onclick = function(){
     }
     let token = false;
     if(name.value !== "" && pass.value !== ""){
+        console.log(managerarray);
+        console.log(customerarray);
         if(manager){
-            for(var user in managerarray){
-                if(managerarray[user].name = name.value && managerarray[user].pass == pass.value){
-                    console.log("matched th result")
+            console.log("entetr teh manager");
+            $.each( managerarray, function( key, value ) {
+
+                if(value.name == name.value && value.pass == pass.value){
+                    console.log("matched th manager")
                     token = true;
-                    break;
                 }
-            }
+                
+        
+        
+            });
         }
         else{
-            for(var user in customerarray){
-                if(customerarray[user].name = name.value && customerarray[user].pass == pass.value){
-                    console.log("matched th result")
+            console.log("entetr teh customer    ");
+            $.each( customerarray, function( key, value ) {
+
+                if(value.name == name.value && value.pass == pass.value){
+                    console.log("matched th manager")
                     token = true;
-                    break;
                 }
-            }
+                
+        
+        
+            });
+
 
         }
     }
     if (name.value !=="" && pass.value !==""){
         if(token){
-            name.value = ""
-            pass.value = ""
+            
             //login into the order page
+            localStorage.setItem("currentuser",name.value)
+            
+            localStorage.setItem("admin",JSON.stringify(manager))
+
             window.location.href = "menu.html";
 
-
             console.log("successfully login")
+            name.value = ""
+            pass.value = ""
 
         }
         else{
@@ -194,17 +218,51 @@ document.getElementById("signup").onclick = function(){
             upass.classList.remove("is-invalid")
             ucpass.classList.remove("is-invalid")
             var user = new User(uname.value,upass.value)
-            uname.value = ""
-            upass.value = ""
-            ucpass.value = ""
+            
 
             if(manager){
-                managerarray.push(user)
+                if(managerarray.hasOwnProperty(user.name)){
+
+                    uname.classList.add("is-invalid")
+                    $(".invalid-feedback").text("user name is already exist")
+
+
+                }
+                else{
+                    uname.value = ""
+                    upass.value = ""
+                    ucpass.value = ""
+                    
+                    managerarray[user.name] = user
+                    localStorage.setItem("manager",JSON.stringify(managerarray))
+                    $('#signup').attr("data-dismiss","modal");    
+
+
+                }
+                
             }
             else{
-                customerarray.push(user)
+                if(customerarray.hasOwnProperty(user.name)){
+                    uname.classList.add("is-invalid")
+                    $(".invalid-feedback").text("user name is already exist")
+
+                }
+                else{
+                    uname.value = ""
+                    upass.value = ""
+                    ucpass.value = ""
+                    
+                    customerarray[user.name] = user
+
+                    localStorage.setItem("customer",JSON.stringify(customerarray))
+                    $('#signup').attr("data-dismiss","modal");    
+
+
+                }
+
+                
+
             }
-            $('#signup').attr("data-dismiss","modal");    
 
 
         }

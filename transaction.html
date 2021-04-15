@@ -19,8 +19,8 @@
           <div class="collapse navbar-collapse" id="navbarNav">        
             
             <ul class="navbar-nav ms-auto ">
-                <li class="nav-item navbar-right text-warning">
-                  kavin</li>
+                <li class="nav-item user navbar-right text-warning">
+                  </li>
             </ul>
               <ul class="navbar-nav ms-auto ">
                 <li class="nav-item navbar-right">
@@ -57,7 +57,34 @@
         <!-- <p class="text-center fw-light">Most popular choice</p> -->
     </div>
     
-    <!-- choices -->
+    <!-- Bill -->
+    <div class="container mt-5">
+        <table class="table position-relative text-center" >
+            
+            <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" style="display: none;">SL NO</th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Total Price</th>
+                </tr>
+              </thead>
+              <tbody class="bill">
+                  
+                  
+                
+              </tbody>
+
+        </table>
+        <div class="d-flex justify-content-around">
+            <h1 class="fw-5 text-center mt-5">Total :<span id="bill" class="ml-5"></span></h1>
+            <button type="button" class="btn btn-warning mt-5 order">Place order</button>
+        </div>
+        <div class="success text-center display-3 text-success mt-5" style="display: none;" ><i class="display-3 fa fa-check"></i>Order completed</div>
+    </div>
+    
 
    
    
