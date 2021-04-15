@@ -5,7 +5,7 @@ import {order} from "./model.js";
 var customerarray = {}
 var managerarray = {}
 
-// const orderarray = []
+var orderarray = []
 
 
 
@@ -31,22 +31,29 @@ else{
     managerarray["admin"] = new User("admin","admin")
 
 }
-
-
-const itemarray = {
-    "1001" : new Item("1001","Idly",2,"Breakfast",20),
-    "1002" : new Item("1002","Pongal",9,"Breakfast",30),
-    "1003" : new Item("1003","Dosa",4,"Breakfast",30),
-    "1004" : new Item("1004","Vada",7,"Breakfast",10),
-    "1005" : new Item("1005","Rice",7,"Lunch",50),
-    "1006" : new Item("1006","Noodles",5,"Lunch",70),
-    "1007" : new Item("1007","Curd Rice",6,"Lunch",30),
-    "1008" : new Item("1008","Parota",7,"Dinner",10),
-    "1009" : new Item("1009","Chappathi",4,"Dinner",15),
-    "1010" : new Item("10010","Non-parota",2,"Dinner",20),
-    "1011" : new Item("10011","Pizza",2,"Breakfast",100),
-    "1012" : new Item("10012","Burger",2,"Dinner",100)
+var itemarray = {}
+if(JSON.parse(localStorage.getItem("item"))){
+    itemarray = JSON.parse(localStorage.getItem("item"))
+    
 }
+else{
+    var itemarray = {
+        "1001" : new Item("1001","Idly",2,"Breakfast",20),
+        "1002" : new Item("1002","Pongal",9,"Breakfast",30),
+        "1003" : new Item("1003","Dosa",4,"Breakfast",30),
+        "1004" : new Item("1004","Vada",7,"Breakfast",10),
+        "1005" : new Item("1005","Rice",7,"Lunch",50),
+        "1006" : new Item("1006","Noodles",5,"Lunch",70),
+        "1007" : new Item("1007","Curd Rice",6,"Lunch",30),
+        "1008" : new Item("1008","Parota",7,"Dinner",10),
+        "1009" : new Item("1009","Chappathi",4,"Dinner",15),
+        "1010" : new Item("1010","Non-parota",2,"Dinner",20),
+        "1011" : new Item("1011","Pizza",2,"Breakfast",100),
+        "1012" : new Item("1012","Burger",2,"Dinner",100)
+    }
+
+}
+
 
 
 

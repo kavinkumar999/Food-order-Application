@@ -103,7 +103,6 @@ footer {
   }
   
 
-
 .wrong::after{
     font-family: FontAwesome;
     content: "\f00d NA";
