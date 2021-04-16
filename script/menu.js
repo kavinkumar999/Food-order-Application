@@ -1,7 +1,7 @@
 function cardcreation(id,name,price){
     const card =`
         <div class="card align-item" style="width: 18rem;" id="row-">
-            <img class="card-img-top" src="assest/2.jpg" alt="Card image cap">
+            <img class="card-img-top" src="../assest/2.jpg" alt="Card image cap">
             <div class="card-body">
                 <h2 style="display: none;">${id}</h2>
                 <h5 class="card-title">${name}</h5>
@@ -22,11 +22,11 @@ function cardcreation(id,name,price){
 var currentuser = localStorage.getItem("currentuser")
 var json = JSON.parse(localStorage.getItem("order"))
 var purchase = {};
-if(Object.keys(json).length == 0){
+let purchaselength = 0;
+if(json != null && Object.keys(json).length != 0){
     console.log("object is empty")
-}
-else{
-    purchase = json
+    purchaselength = Object.keys(json).length
+
 }
 
 var access = JSON.parse(localStorage.getItem("admin"))
@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 // }
 
-    $(".pur-badge").html(Object.keys(purchase).length)
+    $(".pur-badge").html(purchaselength)
     var item = JSON.parse(localStorage.getItem("item"))
     $.each( item, function( key, value ) {
         console.log(value)

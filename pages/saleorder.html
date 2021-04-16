@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Foodie</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
             </ul>
               <ul class="navbar-nav ms-auto ">
                 <li class="nav-item navbar-right">
-                  <a href="index.html"  class="text-warning" >Logout</a></li>
+                  <a href="../index.html"  class="text-warning" >Logout</a></li>
                   
               </ul>
           </div>
@@ -43,17 +43,17 @@
       <!-- image -->
 
       <div class="card">
-        <img class="card-img image-size" src="assest/ban11.jpg" alt="...">
+        <img class="card-img image-size" src="../assest/ban7.jpg" alt="...">
         <div class="card-img-overlay img-text overlay-dark text-white d-flex justify-content-center align-items-end">
           <a  class="btn  bg-transparent text-white _text display-1 line1" href="menu.html">Food Menu</a>
-          <a class="btn  bg-transparent text-white _text" href="#">Report</a>
+          <a class="btn  bg-transparent text-white _text" href="#">Sales Order Report</a>
         </div>
     </div>
 
     <div class="container inside">
-        <p class="display-2 text-center">Sales Invoice</p>
+        <p class="display-2 text-center">Sales Order Report</p>
         <!-- <p class="text-center fw-light">Most popular choice</p> -->
-        <!-- <div class="container inside">
+        <div class="container inside">
           <ul class="list-unstyled list-inline text-center">
               <li class="btn filter btn-light active list-inline-item" id="all">All</li>
               <li class="btn filter btn-light list-inline-item" id="break">Breakfast</li>
@@ -61,26 +61,27 @@
               <li class="btn filter btn-light list-inline-item" id="dinner">Dinner</li>
           </ul>
           
-      </div> -->
+      </div>
         <table class="table mt-5 position-relative text-center" >
           
           <thead>
               <tr>
-                <th scope="col">Invoice no</th>
-                <th scope="col">Sale Order no</th>
-                <th scope="col">Customer</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Payment Status</th>
+                <th scope="col">Sale order</th>
+                <th scope="col">Item code</th>
+                <th scope="col">Item</th>
+                <th scope="col">User</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
               </tr>
             </thead>
-            <tbody class="invoicevalue">
+            <tbody class="sales">
                 
                 
               
             </tbody>
 
       </table>
-      <h1 class="fw-5 float-right text-center mt-5 mr-5">Total Sale value :<span id="salesinvoicevalue" class="ml-5"></span></h1>
+      <h1 class="fw-5 float-right text-center mt-5 mr-5">Total Sales :<span id="totalsales" class="ml-5"></span></h1>
 
     </div>
     
@@ -95,5 +96,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="script/salesinvoice.js"></script>
+<script src="../script/salesorder.js"></script>
 </html>

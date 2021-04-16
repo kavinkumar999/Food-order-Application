@@ -24,7 +24,7 @@ $(document).ready(function(){
     let total = 0
     if(invoice != null && Object.keys(invoice).length !=0){
         $.each(invoice,function(key,value){
-            const table = addtable(key,Object.keys(value[0])[0],value[1],value[2],value[3])
+            const table = addtable(key,value[0],value[1],value[2],value[3])
             $(".invoicevalue").append(table)
             total = total + parseInt(value[2])
         })

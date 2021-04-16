@@ -1,6 +1,5 @@
 import {User} from "./model.js";
 import {Item} from "./model.js";
-import {order} from "./model.js";
 
 var customerarray = {}
 var managerarray = {}
@@ -140,7 +139,7 @@ document.getElementById("signin").onclick = function(){
             
             localStorage.setItem("admin",JSON.stringify(manager))
 
-            window.location.href = "menu.html";
+            window.location.href = "pages/menu.html";
 
             console.log("successfully login")
             name.value = ""

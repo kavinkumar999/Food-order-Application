@@ -9,7 +9,7 @@ $(".user").html(currentuser)
 function cardcreation(id,name,price,quantity){
     const card =`
         <div class="card align-item" style="width: 18rem;" id="row-">
-            <img class="card-img-top" src="assest/2.jpg" alt="Card image cap">
+            <img class="card-img-top" src="../assest/2.jpg" alt="Card image cap">
             <div class="card-body">
                 <h2 style="display: none;">${id}</h2>
                 <span class="float-right "><i class="fa fa-edit edit "data-toggle="modal" data-target="#edit"></i></span>
@@ -217,7 +217,7 @@ $(document).ready(function(){
             if(!isNaN(newprice) && !isNaN(newqan) && newname !== "")
             {
                 item[code] = new Item(code.toString(),newname,parseInt(newqan),category,parseInt(newprice))
-                // localStorage.setItem("item",JSON.stringify(item))
+                localStorage.setItem("item",JSON.stringify(item))
                 $('#newitem').attr("data-dismiss","modal");
                 $('.toast').toast('show');
                 const card = cardcreation(code,newname,newprice,newqan)
