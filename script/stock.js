@@ -31,4 +31,54 @@ $(document).ready(function(){
 
     })
     $("#totalstock").html(total)
+    $(".filter").click(function(){
+        let total = 0
+        let item = JSON.parse(localStorage.getItem("item"))
+
+        $(".inside").find(".active").removeClass("active")
+        $(this).addClass("active")
+        let category = $(this).attr("id")
+        $(".stock").html("")
+        if(category == "break"){
+            $.each( item, function( key, value ) {
+                if(value.category == "Breakfast"){
+                    total = total + parseInt(value.quantity)*parseInt(value.price)
+
+                    const table = addtable(key,value.name, value.quantity, value.category, value.price , parseInt(value.quantity)*parseInt(value.price))
+                    $(".stock").append(table)
+                }
+            });
+        }
+        else if(category == "lunch"){
+            $.each( item, function( key, value ) {
+                if(value.category == "Lunch"){
+                    total = total + parseInt(value.quantity)*parseInt(value.price)
+
+                    const table = addtable(key,value.name, value.quantity, value.category, value.price , parseInt(value.quantity)*parseInt(value.price))
+                    $(".stock").append(table)
+                }
+            });
+        }
+        else if(category == "dinner"){
+            $.each( item, function( key, value ) {
+                if(value.category == "Dinner"){
+                    total = total + parseInt(value.quantity)*parseInt(value.price)
+
+                    const table = addtable(key,value.name, value.quantity, value.category, value.price , parseInt(value.quantity)*parseInt(value.price))
+                    $(".stock").append(table)
+                }
+            });
+        }
+        else{
+            $.each( item, function( key, value ) {
+                total = total + parseInt(value.quantity)*parseInt(value.price)
+
+                const table = addtable(key,value.name, value.quantity, value.category, value.price , parseInt(value.quantity)*parseInt(value.price))
+                $(".stock").append(table)
+            });
+
+        }
+        $("#totalstock").html(total)
+        
+    })
 })

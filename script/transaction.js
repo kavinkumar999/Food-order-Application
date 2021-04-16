@@ -143,31 +143,67 @@ $(document).ready(function(){
         let _order = JSON.parse(localStorage.getItem("order"))
 
             //success
+            let totalprice = 0
             $.each(_order,function(key,value){
                 item[key].quantity = parseInt(item[key].quantity)- parseInt(value[1])
+                totalprice = totalprice + parseInt(value[3])
         
             })
             localStorage.setItem("item",JSON.stringify(item))
 
             let curuser = localStorage.getItem("currentuser")
-            var purorder = []
-            if(JSON.parse(localStorage.getItem("purchased"))){
-                purorder = JSON.parse(localStorage.getItem("purchased"))
+
+            var salesorder = {}
+            if(JSON.parse(localStorage.getItem("saleorder"))){
+                salesorder = JSON.parse(localStorage.getItem("saleorder"))
             }
-            
-            // let curoder = new order
+
+            var invoice = {}
+            if(JSON.parse(localStorage.getItem("invoice"))){
+                invoice = JSON.parse(localStorage.getItem("invoice"))
+            }
+
+            //sales order no creation
+            let salesorderno = 5001
+            if(JSON.parse(localStorage.getItem("sorderno"))){
+                salesorderno = JSON.parse(localStorage.getItem("sorderno"))
+            }
+
+            //sales invoice  no creation
+            let invoiceno = 7001
+            if(JSON.parse(localStorage.getItem("invoiceno"))){
+                invoiceno = JSON.parse(localStorage.getItem("invoiceno"))
+            }
+
+
+            //add sales item to separate array
+
+            let salesitems = []
             let ordered = JSON.parse(localStorage.getItem("order"));
             $.each(ordered, function(key,value){
 
                 let orderarr = new order(key,value[0],curuser,value[1],value[3])
-                purorder.push(orderarr)
+                salesitems.push(orderarr)
 
             })
-            // ordered = ordered.clear()
+
+
+
             ordered = {}
-            // console.log(ordered);
+
+            //create salesorder
+            salesorder[salesorderno] = salesitems
+
+            //create invoice
+            invoice[invoiceno] = [salesorderno,currentuser,totalprice,"paid"]
+
             localStorage.setItem("order",JSON.stringify(ordered))
-            localStorage.setItem("purchased",JSON.stringify(purorder))
+            localStorage.setItem("saleorder",JSON.stringify(salesorder))
+            localStorage.setItem("invoice",JSON.stringify(invoice))
+            localStorage.setItem("sorderno",salesorderno + 1)
+            localStorage.setItem("invoiceno",invoiceno + 1)
+
+
 
 
 

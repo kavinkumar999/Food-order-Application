@@ -122,7 +122,7 @@ $(document).ready(function(){
                 $("#price").removeClass("is-invalid")
             }
 
-            if(!isNaN(newprice) && !isNaN(newqan) && newname !== "")
+            if(!isNaN(changeprice) && !isNaN(changequan) && changename !== "")
             {
                 currentitem.innerText = changename
                 currenquan.innerText = changequan
@@ -160,7 +160,11 @@ $(document).ready(function(){
         
         // $('.toast').toast('show');let itemcode = $("#itemcode").val()
         let item = JSON.parse(localStorage.getItem("item"))
-        let code = Object.keys(item).length+1001
+        let code = 1013
+        if(localStorage.getItem("lastindex")){
+            code = localStorage.getItem("lastindex")
+        }
+        localStorage.setItem("lastindex",parseInt(code)+1)
             $("#itemcode1").val(code)
             $("#newitem").click(function () {
             let newname = $("#itemname1").val()

@@ -31,7 +31,7 @@ body,footer{
 .banner-text{
     
     color: white;
-    margin-bottom: 400px;
+    margin-bottom: 50px;
 }
 #service > .row{
     margin-top: 100px ;
@@ -109,4 +109,12 @@ footer {
     font-size: 20px;
     color: red;
 
+}
+.align-t{
+    margin-bottom: 400px;
+}
+
+.align-b{
+    position: relative;
+    bottom: 340px;
 }
