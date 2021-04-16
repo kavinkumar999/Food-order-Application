@@ -134,11 +134,15 @@ $(document).ready(function(){
                 item[itemcode] = cur
                 localStorage.setItem("item",JSON.stringify(item))
                 // item[]
+                // $('.updated').toast('show');
+                $(".updated").removeAttr("style")
                 console.log("trigger inside");
                 $('#save').attr("data-dismiss","modal");  
 
 
             }
+            setTimeout(function(){$(".updated").css("display","none")},3000)
+
 
             
             
@@ -219,7 +223,9 @@ $(document).ready(function(){
                 item[code] = new Item(code.toString(),newname,parseInt(newqan),category,parseInt(newprice))
                 localStorage.setItem("item",JSON.stringify(item))
                 $('#newitem').attr("data-dismiss","modal");
-                $('.toast').toast('show');
+                // $('.added').toast('show');
+                $(".added").removeAttr("style")
+                setTimeout(function(){$(".added").css("display","none")},3000)
                 const card = cardcreation(code,newname,newprice,newqan)
                 $("#dynamic-row").prepend(card)
 

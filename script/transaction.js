@@ -114,9 +114,13 @@ $(document).ready(function(){
         }
 
     })
-    $(".order").click(function(){   
-        var ordered = JSON.parse(localStorage.getItem("order"))
+    $(".order").click(function(){ 
+            // $(".success").removeAttr("style")
 
+        var ordered = JSON.parse(localStorage.getItem("order"))
+        $(".order").addClass("animate__headShake")
+        
+        setTimeout(function(){ $(".order").removeClass("animate__headShake") }, 2000);
 
         let item = JSON.parse(localStorage.getItem("item"))
         let token = true
