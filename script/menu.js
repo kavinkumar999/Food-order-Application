@@ -131,6 +131,8 @@ $(document).ready(function(){
         
     })
     $(".cart").click(function(){
+        $(".added").removeAttr("style")
+        setTimeout(function(){$(".added").css("display","none")},1000)
         console.log($(this).prevAll("h5").html());
         console.log($(this).prevAll("div").find("span").html());
         let item = $(this).prevAll("h5").html();
