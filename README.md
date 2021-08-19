@@ -42,6 +42,6 @@ Online hotel management and food ordering web application. This project is mainl
 <img align="center" src="shop.png" height = "500" weight = "600">
 <img align="center" src="inventory.png" height = "500" weight = "600">
 
-## Contact 
+## Developer 
 
 [@kavin kumar](https://github.com/kavinkumar999)
